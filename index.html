@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <div class="background">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+      </div>
+    
+    <!-- Main App Frame -->
+    <div id="app-frame">
+        <!-- Back to Home Icon -->
+
+        <!-- Cards Section -->
+        <div class="cards-section" aria-label="Select a category to view tasks">
+            <div class="card" data-category="personal" aria-label="View Personal tasks">Personal</div>
+            <div class="card" data-category="education" aria-label="View Education tasks">Education</div>
+            <div class="card" data-category="health" aria-label="View Health tasks">Health</div>
+            <div class="card" data-category="work" aria-label="View Work tasks">Work</div>
+            <div class="card" data-category="shopping" aria-label="View Shopping tasks">Shopping</div>
+            <div class="card" data-category="fun" aria-label="View Fun tasks">Fun</div>
+        </div>
+
+        <!-- Task Display Section -->
+        <div id="task-display" style="display: none;">
+            <h2 id="task-category-title">Tasks</h2>
+
+            <button id="back-home" class="icon-button" aria-label="Go back to home">
+                <i class="fas fa-home"></i>
+            </button>
+            <nav>
+              
+                <a href="#" id="completed-tasks-btn" class="icon-button" aria-label="View completed tasks">
+                    <i class="fas fa-thumbs-up" aria-hidden="true"></i> <!-- Thumbs up for completed -->
+                    <span class="icon-label"></span> <!-- Optional label -->
+                </a>
+                <a href="#" id="incomplete-tasks-btn" class="icon-button" aria-label="View incomplete tasks">
+                    <i class="fas fa-hourglass-half" aria-hidden="true"></i> <!-- Hourglass for incomplete -->
+                    <span class="icon-label"></span> <!-- Optional label -->
+                </a>
+                
+            </nav>
+
+            
+
+            <!-- Task List for the Selected Category -->
+            <div id="task-list" class="task-list" aria-label="Task list for selected category">
+                <!-- Example Task Card (This will be dynamically populated) -->
+                <div class="task-item">
+                    <div class="task">
+                        <!-- Task Info -->
+                        <div class="task-info">
+                            <div class="task-title">Task Title</div>
+                            <div class="task-meta">
+                                <span>10/6/2024, 6:53:58 AM</span>
+                            </div>
+                        </div>
+
+                        <!-- Priority and Action Buttons -->
+                        <div class="task-right">
+                            <div class="task-priority">Priority: low</div>
+                            <div class="task-actions">
+                                <button class="complete-btn">✔</button>
+                                <button class="update-btn">✎</button>
+                                <button class="delete-btn">🗑</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Task Button (Outside the App Frame) -->
+    <button id="add-task-btn" class="add-task-btn icon-button interactive-icon" aria-label="Add new task">
+        <i class="fas fa-plus"></i>
+    </button>
+
+    <!-- Task Modal (Hidden Initially) -->
+    <div id="task-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span id="close-modal-btn" class="close" aria-label="Close modal">&times;</span>
+            <h3><i class="fas fa-tasks"></i> Create a New Task</h3>
+
+            <!-- Task Input -->
+            <div class="input-field">
+                <i class="fas fa-pen"></i>
+                <input type="text" id="task-input" placeholder="Enter task details" required aria-label="Enter task details">
+            </div>
+
+            <!-- Category Selection -->
+            <div class="input-field">
+                <i class="fas fa-list-ul"></i>
+                <label for="category-select">Category:</label>
+                <select id="category-select" required aria-label="Select task category">
+                    <option value="personal">Personal</option>
+                    <option value="work">Work</option>
+                    <option value="shopping">Shopping</option>
+                    <option value="health">Health</option>
+                    <option value="education">Education</option>
+                    <option value="fun">Fun</option>
+                </select>
+            </div>
+
+            <!-- Priority Selection -->
+            <div class="input-field">
+                <i class="fas fa-exclamation-circle"></i>
+                <label for="priority-select">Priority:</label>
+                <select id="priority-select" required aria-label="Select task priority">
+                    <option value="low">Low</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="high">High</option>
+                </select>
+            </div>
+
+            <!-- Add Task Button Inside Modal -->
+            <div>
+                <button id="add-task-btn-modal" class="icon-button" aria-label="Add new task to the list">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Celebration Popup Modal -->
+    <div id="celebration-popup" class="popup" style="display: none;">
+        <div class="popup-content">
+            <div class="confetti"></div>
+        </div>
+    </div>
+
+    <!-- Script Import -->
+    <script src="script.js"></script>
+</body>
+
+</html>
